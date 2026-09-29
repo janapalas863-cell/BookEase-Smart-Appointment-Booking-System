@@ -2,9 +2,11 @@
 
 A salon and spa appointment booking app for haircuts, facials, beard grooming, and spa treatments, built with vanilla JavaScript, Express, and MySQL.
 
-## App preview
+## Live Demo
 
 [Live Demo-BookEase video](https://drive.google.com/file/d/1TtU8xkdSEcjxfyzZAayRRcqfpLw6lXUg/view?usp=drive_link)
+
+## Screenshot
 
 ![BookEase homepage preview](public/landing-and-service-catalog.png)
 
