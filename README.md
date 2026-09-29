@@ -4,6 +4,8 @@ A salon and spa appointment booking app for haircuts, facials, beard grooming, a
 
 ## App preview
 
+[Live Demo-BookEase video](https://drive.google.com/file/d/1TtU8xkdSEcjxfyzZAayRRcqfpLw6lXUg/view?usp=drive_link)
+
 ![BookEase homepage preview](public/landing-and-service-catalog.png)
 
 ## Project layout
@@ -36,7 +38,7 @@ Requirements: Node.js 20+ and MySQL 8+.
 1. Create the database and tables by running `schema.sql` in MySQL. If BookEase is already installed, run the updated script again to add the profile, review, and offers tables.
 2. Copy `.env.example` to `.env`; set the MySQL connection values and a random `JWT_SECRET` of at least 32 characters.
 3. Run `npm install`, then `npm start` (or `npm run dev` during development).
-4. Open `http://localhost:3000`.
+4. Open [http://localhost:3000](http://localhost:3000).
 
 New accounts are customers. To create a provider account, register normally, then promote that account through a trusted database administrator (replace the email below):
 
