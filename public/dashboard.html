@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your dashboard — BookEase</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <header class="site-header">
+    <a class="brand" href="/">BookEase<span>.</span></a>
+    <nav aria-label="Main navigation"><a href="/">Explore services</a><button id="sign-out" class="button button-outline" type="button">Sign out</button></nav>
+  </header>
+  <main class="page-shell dashboard">
+    <section class="dashboard-heading"><p class="eyebrow">Your BookEase</p><h1 id="dashboard-greeting">Your appointments</h1><p class="muted">Manage your upcoming appointments and bookings.</p></section>
+    <section id="profile-section" class="profile-section hidden">
+      <div class="section-heading"><div><p class="eyebrow">Your details</p><h2>Profile</h2></div></div>
+      <form id="profile-form" class="profile-form">
+        <label>Display name<input name="name" maxlength="100" autocomplete="name" required></label>
+        <label>Email address<input name="email" type="email" readonly></label>
+        <label>Phone<input name="phone" maxlength="30" type="tel" autocomplete="tel"></label>
+        <label>City<input name="city" maxlength="100" autocomplete="address-level2"></label>
+        <div class="profile-photo-control profile-wide">
+          <img id="profile-photo-preview" class="profile-photo-preview hidden" alt="Your profile photo">
+          <label>Profile photo<input id="profile-photo-file" name="photo_file" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <small>JPEG, PNG, or WebP · maximum 5 MB</small>
+        </div>
+        <div id="stylist-profile-fields" class="profile-wide hidden">
+          <label>Specialty<input name="specialty" maxlength="120" placeholder="Color specialist, skincare, barbering..."></label>
+        </div>
+        <label class="profile-wide">About you<textarea name="bio" rows="3" maxlength="1000" placeholder="Share a little about yourself."></textarea></label>
+        <button class="button" type="submit">Save profile</button>
+        <p id="profile-message" class="form-message" role="status"></p>
+      </form>
+    </section>
+    <section id="loyalty-section" class="loyalty-section hidden">
+      <div class="loyalty-summary"><p class="eyebrow">BookEase rewards</p><h2><span id="loyalty-points">0</span> points</h2><p id="loyalty-detail" class="muted">Loading your rewards…</p></div>
+      <div><h3>Current offers</h3><div id="dashboard-offer-list" class="dashboard-offers" aria-live="polite"></div></div>
+    </section>
+    <section id="provider-tools" class="provider-tools hidden">
+      <div class="section-heading"><div><p class="eyebrow">For your clients</p><h2>Your services</h2></div></div>
+      <form id="service-form" class="service-form">
+        <label>Service name<input name="title" maxlength="150" required></label>
+        <label>Base price (USD)<input name="price" type="number" min="0" step="0.01" required></label>
+        <label>India price from (INR)<input name="price_min_inr" type="number" min="0" step="0.01"></label>
+        <label>India price to (INR)<input name="price_max_inr" type="number" min="0" step="0.01"></label>
+        <label>Duration (minutes)<input name="duration_minutes" type="number" min="1" max="1440" value="30" required></label>
+        <label class="form-wide">Description<textarea name="description" rows="2"></textarea></label>
+        <button class="button" type="submit">Add a service</button>
+        <p id="service-message" class="form-message" role="status"></p>
+      </form>
+      <div class="section-heading availability-heading"><div><p class="eyebrow">Set your working hours</p><h2>Weekly availability</h2></div></div>
+      <form id="availability-form">
+        <div id="availability-days" class="availability-days"></div>
+        <button class="button" type="submit">Save availability</button>
+        <p id="availability-message" class="form-message" role="status"></p>
+      </form>
+    </section>
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">Coming up</p><h2 id="booking-list-title">Your bookings</h2></div>
+        <label id="schedule-date-field" class="schedule-date hidden">Schedule date<input id="schedule-date" type="date"></label>
+      </div>
+      <div id="customer-booking-tabs" class="booking-tabs hidden" role="tablist" aria-label="Booking view">
+        <button class="booking-tab active" type="button" role="tab" aria-selected="true" data-filter="upcoming">Upcoming</button>
+        <button class="booking-tab" type="button" role="tab" aria-selected="false" data-filter="history">Booking history</button>
+      </div>
+      <div id="dashboard-bookings" class="booking-list" aria-live="polite"><p>Loading your bookings…</p></div>
+    </section>
+  </main>
+  <dialog id="auth-dialog" class="auth-dialog">
+    <form id="auth-form" class="auth-form">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">Welcome to BookEase</p><h2 id="auth-title">Sign in</h2>
+      <label id="name-field" class="hidden">Your name<input name="name" autocomplete="name"></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+      <label>Password<input name="password" type="password" minlength="8" autocomplete="current-password" required></label>
+      <button class="button button-full" type="submit">Continue</button>
+      <button id="auth-toggle" class="text-button" type="button">New to BookEase? Create an account</button>
+      <p class="form-message" role="status"></p>
+    </form>
+  </dialog>
+</body>
+</html>

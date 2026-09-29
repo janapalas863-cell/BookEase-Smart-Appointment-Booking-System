@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book an appointment — BookEase</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-page="booking">
+  <header class="site-header">
+    <a class="brand" href="/">BookEase<span>.</span></a>
+    <nav aria-label="Main navigation"><a href="/">Explore services</a><a href="/dashboard.html">My dashboard</a></nav>
+  </header>
+  <main class="page-shell narrow">
+    <a class="back-link" href="/">← All services</a>
+    <section class="booking-layout">
+      <div>
+        <p class="eyebrow">Reserve your time</p>
+        <h1 id="booking-title">Choose a time</h1>
+        <p id="booking-description" class="muted">Select a date to see available appointments.</p>
+      </div>
+      <div class="booking-panel">
+        <label for="booking-date">Choose a date</label>
+        <input id="booking-date" type="date">
+        <div class="slot-legend"><span><i></i> Available</span><span><i class="taken"></i> Booked</span></div>
+        <div id="slot-list" class="slot-grid" aria-live="polite"><p class="muted">Choose a date to load time slots.</p></div>
+        <button id="confirm-booking" class="button button-full" type="button" disabled>Confirm appointment</button>
+        <p id="booking-message" class="form-message" role="status"></p>
+      </div>
+    </section>
+  </main>
+  <dialog id="auth-dialog" class="auth-dialog">
+    <form id="auth-form" class="auth-form">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">Welcome to BookEase</p><h2 id="auth-title">Sign in</h2>
+      <label id="name-field" class="hidden">Your name<input name="name" autocomplete="name"></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+      <label>Password<input name="password" type="password" minlength="8" autocomplete="current-password" required></label>
+      <button class="button button-full" type="submit">Continue</button>
+      <button id="auth-toggle" class="text-button" type="button">New to BookEase? Create an account</button>
+      <p class="form-message" role="status"></p>
+    </form>
+  </dialog>
+</body>
+</html>
